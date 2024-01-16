@@ -16,36 +16,45 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body>
-		<slot />
+	<body >
+		<div id="app" class="relative md:gap-x-2  gap-y-1  h-screen">
+			<header class="[grid-area:header] bg-blue-200">
+				HEADER
+			</header>
+			  <header class="[grid-area:mobile-nav] bg-red-300 md:hidden">
+				MOBILE NAV
+			</header>
+	
+			<aside id="lg-nav" class="[grid-area:lg-nav] bg-green-400 hidden flex-col md:flex ">
+				LARGE NAV
+			</aside>
+			<main class="[grid-area:main] bg-yellow-300 flex flex-1">
+				<slot />
+			</main>
+		</div>
+		
 	</body>
+	<!-- -->
 </html>
+<style>
+	
+	#app {
+		display: grid;
+		grid-template-areas: 
+			"header header header"
+			"mobile-nav mobile-nav mobile-nav" 
+			"lg-nav main main"
+		;
+		grid-template-columns: auto 1fr;
+		grid-template-rows: auto auto 1fr;
+	}
+
+</style>
 <style is:global>
 	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
 	}
 	html {
 		font-family: system-ui, sans-serif;
 		background: #13151a;
-		background-size: 224px;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
 	}
 </style>
