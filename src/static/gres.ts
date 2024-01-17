@@ -4,22 +4,22 @@ export const gres: iGRES[] = [
   {
     title: 'Usd',
     category: 'Icon',
-    route: '/src/library/usd-circulo.png',
+    route: 'usd-circulo.png',
   },
   {
     title: 'Telegram',
     category: 'Icon',
-    route: '/src/library/telegram.png',
+    route: 'telegram.png',
   },
   {
     title: 'marzo',
     category: 'Sticker',
-    route: '/src/library/marzo.png',
+    route: 'marzo.png',
   },
   {
     title: 'Comprobacion',
     category: 'Shape',
-    route: '/src/library/comprobacion.png',
+    route: 'comprobacion.png',
   }
 ];
 
