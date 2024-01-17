@@ -22,3 +22,10 @@ export const gres: iGRES[] = [
     route: '/library/comprobacion.png',
   }
 ];
+
+export const getCategories = () => {
+  return gres
+  .map((gres) => gres.category.toLowerCase())
+  .filter((category, index, array) => array.indexOf(category) === index);
+
+}

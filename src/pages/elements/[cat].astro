@@ -1,23 +1,23 @@
 ---
-import MainGrid from '../../components/MainGrid.astro';
-import Layout from '../../layouts/Layout.astro';
+import MainGrid from "../../components/MainGrid.astro";
+import Layout from "../../layouts/Layout.astro";
 
-import { gres } from "../static/gres";
-const categories = gres
-    .map((gres) => gres.category)
-    .filter((category, index, array) => array.indexOf(category) === index);
-
-export async function getStaticPaths() {
-  return [
-    { params: { cat: 'icon' } },
-    { params: { cat: 'sticker' } },
-    { params: { cat: 'shape' } }
-  ];
-}
+import { gres } from "../../static/gres";
+import  { getCategories} from "../../static/gres";
 
 const { cat } = Astro.params;
+
+
+export async function getStaticPaths() {
+  const categories = await getCategories();
+  return categories.map((category) => ({
+      params: {cat: category}
+  }))
+}
+
+
 ---
 
-<Layout title='Hola'>
+<Layout title="Hola">
   <MainGrid cat={cat} />
 </Layout>
