@@ -2,6 +2,11 @@
 import MainGrid from '../../components/MainGrid.astro';
 import Layout from '../../layouts/Layout.astro';
 
+import { gres } from "../static/gres";
+const categories = gres
+    .map((gres) => gres.category)
+    .filter((category, index, array) => array.indexOf(category) === index);
+
 export async function getStaticPaths() {
   return [
     { params: { cat: 'icon' } },
