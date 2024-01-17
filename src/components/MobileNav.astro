@@ -1,0 +1,19 @@
+---
+import { gres } from "../static/gres";
+const categories = gres
+    .map((gres) => gres.category)
+    .filter((category, index, array) => array.indexOf(category) === index);
+---
+
+<nav class="flex text-white/70 gap-y-1 mx-1 p-1 bg-neutral-900 gap-2">
+    <a href="/" class="hover:bg-white/10 px-1 py-2 text-start hover:text-white/90 rounded-md">
+        <span>All</span>
+    </a>
+    {
+        categories.map((category) => (
+            <a href={`/elements/${category}`} class="hover:bg-white/10 px-1 py-2 text-start hover:text-white/90 rounded-md">
+                <span>{category}</span>
+            </a>
+        ))
+    }
+</nav>

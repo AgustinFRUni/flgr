@@ -2,12 +2,12 @@ import type { iGRES } from '../static/types/gres';
 
 export const gres: iGRES[] = [
   {
-    title: 'Usd Icon',
+    title: 'Usd',
     category: 'Icon',
     route: '/library/usd-circulo.png',
   },
   {
-    title: 'Telegram Icon',
+    title: 'Telegram',
     category: 'Icon',
     route: '/library/telegram.png',
   },
@@ -17,7 +17,7 @@ export const gres: iGRES[] = [
     route: '/library/marzo.png',
   },
   {
-    title: 'Comprobacion Shape',
+    title: 'Comprobacion',
     category: 'Shape',
     route: '/library/comprobacion.png',
   }

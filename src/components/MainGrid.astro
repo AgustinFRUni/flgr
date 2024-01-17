@@ -1,0 +1,18 @@
+---
+import { gres } from "../static/gres";
+import GresCard from "./GresCard.astro";
+const categories = gres
+    .map((gres) => gres.category)
+    .filter((category, index, array) => array.indexOf(category) === index);
+
+---
+<div class="grid grid-cols-4 bg-[#161616] h-full w-full gap-4 auto-rows-[15rem] m-6">
+    {
+        gres.map(gr => (
+            
+                <GresCard gresInfo={gr}/>
+            
+        ))
+    }
+</div>
+

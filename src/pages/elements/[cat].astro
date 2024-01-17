@@ -1,0 +1,19 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  return [
+    { params: { cat: 'icon' } },
+    { params: { cat: 'sticker' } },
+    { params: { cat: 'shape' } }
+  ];
+}
+
+
+const { cat } = Astro.params;
+
+---
+
+<Layout title="Welcome to FLGR.">
+	<MainGrid />
+</Layout>
