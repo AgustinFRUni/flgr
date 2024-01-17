@@ -11,7 +11,7 @@ const categories = gres
     </a>
     {
         categories.map((category) => (
-            <a href={`/elements/${category}`} class="hover:bg-white/10 px-1 py-2 text-start hover:text-white/90 rounded-md">
+            <a href={`/elements/${category.toLowerCase()}`} class="hover:bg-white/10 px-1 py-2 text-start hover:text-white/90 rounded-md">
                 <span>{category}</span>
             </a>
         ))
