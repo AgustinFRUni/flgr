@@ -1,7 +1,7 @@
 ---
-import Header from '../components/Header.astro';
-import LgNav from '../components/LgNav.astro';
-import MobileNav from '../components/MobileNav.astro';
+import Header from "../components/Header.astro";
+import LgNav from "../components/LgNav.astro";
+import MobileNav from "../components/MobileNav.astro";
 
 interface Props {
 	title: string;
@@ -20,88 +20,91 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body >
+	<body>
 		<div id="app" class="relative h-screen bg-[#171717]">
 			<header class="[grid-area:header] bg-[#171717] text-white">
-				<Header/>
+				<Header />
 			</header>
-			  <header class="[grid-area:mobile-nav] overflow-x-auto md:hidden ">
-				<MobileNav/>
+			<header class="[grid-area:mobile-nav] overflow-x-auto md:hidden">
+				<MobileNav />
 			</header>
-	
-			<aside id="lg-nav" class="[grid-area:lg-nav] overflow-y-auto hidden flex-col md:flex ">
+
+			<aside
 				
-				<LgNav/>
+				class="[grid-area:lg-nav] sticky overflow-y-auto hidden flex-col md:flex border-r border-neutral-800"
+			>
+				<LgNav />
 			</aside>
-			<main id="prueba" class="[grid-area:main]  flex flex-1 bg-[#161616] overflow-x-auto">
+			<main
+				
+				class="[grid-area:main] flex flex-1 bg-[#161616] overflow-x-auto"
+			>
 				<slot />
 			</main>
 		</div>
-		
 	</body>
 </html>
 <style>
+	
 	#app {
 		display: grid;
-		grid-template-areas: 
+		grid-template-areas:
 			"header header header"
-			"mobile-nav mobile-nav mobile-nav" 
-			"lg-nav main main"
-		;
+			"lg-nav mobile-nav mobile-nav"
+			"lg-nav main main";
 		grid-template-columns: auto 1fr;
 		grid-template-rows: auto auto 1fr;
 	}
 </style>
 <style is:global>
 	:root {
-    --sb-track-color: #171717;
-    --sb-thumb-color: #404040;
-    --sb-size: 10px;
-  }
+		--sb-track-color: #171717;
+		--sb-thumb-color: #404040;
+		--sb-size: 10px;
+	}
 	html {
 		font-family: system-ui, sans-serif;
 		background: #13151a;
 	}
 	body,
-  nav {
-    scrollbar-color: var(--sb-thumb-color) transparent;
-  }
+	nav {
+		scrollbar-color: var(--sb-thumb-color) transparent;
+	}
 
-  aside::-webkit-scrollbar {
-    width: var(--sb-size);
-  }
+	aside::-webkit-scrollbar {
+		width: var(--sb-size);
+	}
 
-  aside::-webkit-scrollbar-track {
-    background: var(--sb-track-color);
-  }
+	aside::-webkit-scrollbar-track {
+		background: var(--sb-track-color);
+	}
 
-  aside::-webkit-scrollbar-thumb {
-    background: var(--sb-thumb-color);
-  }
+	aside::-webkit-scrollbar-thumb {
+		background: var(--sb-thumb-color);
+	}
 
+	main::-webkit-scrollbar {
+		width: var(--sb-size);
+	}
 
-  main::-webkit-scrollbar {
-    width: var(--sb-size);
-  }
+	main::-webkit-scrollbar-track {
+		background: var(--sb-track-color);
+	}
 
-  main::-webkit-scrollbar-track {
-    background: var(--sb-track-color);
-  }
+	main::-webkit-scrollbar-thumb {
+		background: var(--sb-thumb-color);
+	}
 
-  main::-webkit-scrollbar-thumb {
-    background: var(--sb-thumb-color);
-  }
+	header::-webkit-scrollbar {
+		width: var(--sb-size);
+	}
 
-  header::-webkit-scrollbar {
-    width: var(--sb-size);
-  }
+	header::-webkit-scrollbar-track {
+		background: var(--sb-track-color);
+	}
 
-  header::-webkit-scrollbar-track {
-    background: var(--sb-track-color);
-  }
-
-  header::-webkit-scrollbar-thumb {
-    background: var(--sb-thumb-color);
-  }
+	header::-webkit-scrollbar-thumb {
+		background: var(--sb-thumb-color);
+	}
 
 </style>
