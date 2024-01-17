@@ -33,16 +33,14 @@ const { title } = Astro.props;
 				
 				<LgNav/>
 			</aside>
-			<main class="[grid-area:main]  flex flex-1 bg-[#161616] overflow-x-auto">
+			<main id="prueba" class="[grid-area:main]  flex flex-1 bg-[#161616] overflow-x-auto">
 				<slot />
 			</main>
 		</div>
 		
 	</body>
-	<!-- -->
 </html>
 <style>
-	
 	#app {
 		display: grid;
 		grid-template-areas: 
@@ -53,13 +51,57 @@ const { title } = Astro.props;
 		grid-template-columns: auto 1fr;
 		grid-template-rows: auto auto 1fr;
 	}
-
 </style>
 <style is:global>
 	:root {
-	}
+    --sb-track-color: #171717;
+    --sb-thumb-color: #404040;
+    --sb-size: 10px;
+  }
 	html {
 		font-family: system-ui, sans-serif;
 		background: #13151a;
 	}
+	body,
+  nav {
+    scrollbar-color: var(--sb-thumb-color) transparent;
+  }
+
+  aside::-webkit-scrollbar {
+    width: var(--sb-size);
+  }
+
+  aside::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+  }
+
+  aside::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+  }
+
+
+  main::-webkit-scrollbar {
+    width: var(--sb-size);
+  }
+
+  main::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+  }
+
+  main::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+  }
+
+  header::-webkit-scrollbar {
+    width: var(--sb-size);
+  }
+
+  header::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+  }
+
+  header::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+  }
+
 </style>
