@@ -1,14 +1,23 @@
 ---
+interface Props {
+    cat?: string
+}
+
 import { gres } from "../static/gres";
 import GresCard from "./GresCard.astro";
-const categories = gres
-    .map((gres) => gres.category)
-    .filter((category, index, array) => array.indexOf(category) === index);
 
+let gresources = gres
+const {cat} = Astro.props
+
+if (typeof cat === 'string'){
+    gresources = gresources.filter((gr => (gr.category).toLowerCase() === cat))
+}
+
+console.log(gresources)
 ---
 <div class="grid grid-cols-4 bg-[#161616] h-full w-full gap-4 auto-rows-[15rem] m-6">
     {
-        gres.map(gr => (
+        gresources.map(gr => (
             
                 <GresCard gresInfo={gr}/>
             

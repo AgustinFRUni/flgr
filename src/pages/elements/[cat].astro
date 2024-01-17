@@ -1,5 +1,6 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import MainGrid from '../../components/MainGrid.astro';
+import Layout from '../../layouts/Layout.astro';
 
 export async function getStaticPaths() {
   return [
@@ -9,11 +10,9 @@ export async function getStaticPaths() {
   ];
 }
 
-
 const { cat } = Astro.params;
-
 ---
 
-<Layout title="Welcome to FLGR.">
-	<MainGrid />
+<Layout title='Hola'>
+  <MainGrid cat={cat} />
 </Layout>
