@@ -2,7 +2,6 @@
 import DownloadIcon from "../icons/Download.astro";
 import { gres } from "../static/gres";
 import type { iGRES } from "../static/types/gres";
-import AstroDownload from "./AstroDownload.astro";
 interface Props {
     gresInfo: iGRES;
 }
@@ -16,15 +15,16 @@ const { gresInfo } = Astro.props;
     <img
         src={`/src/library/${gresInfo.route}`}
         alt=""
-        class="w-60 h-auto px-16 pt-3 mx-auto"
+        class="size-36 mt-3 mx-auto rounded-lg "
     />
-    <h2 class="text-white text-center mt-2 font-semibold">{gresInfo.title}</h2>
+    <!--<h2 class="text-white text-center mt-2 font-semibold">{gresInfo.title}</h2> -->
+    
     <a
         href={`/elements/${gresInfo.category.toLowerCase()}`}
-        class="text-white/40 w-[200px] text-center mt-2 font-thin hover:underline"
-        ><h3>{gresInfo.category}</h3>
+        class="text-white/40 w-[200px] text-center font-thin hover:underline"
+        ><h3 class="mt-2">{gresInfo.category}</h3>
     </a>
-    <div class="flex items-center space-x-1 w-full p-3 justify-center">
+    <div class="flex items-center space-x-1 w-full p-2 justify-center">
         <a
             download={gresInfo.title}
             href={`/src/library/${gresInfo.route}`}
@@ -35,3 +35,5 @@ const { gresInfo } = Astro.props;
         </a>
     </div>
 </div>
+
+<!-- -->

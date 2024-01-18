@@ -3,5 +3,6 @@ export type tCategory =
   | 'Icon'
   | 'Sticker'
   | 'Paint Brush'
+  | 'Textura'
   | 'Shape';
 
