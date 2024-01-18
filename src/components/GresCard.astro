@@ -26,7 +26,7 @@ const { gresInfo } = Astro.props;
     </a>
     <div class="flex items-center space-x-1 w-full p-3 justify-center">
         <a
-            download={`/src/library/${gresInfo.route}`}
+            download={gresInfo.title}
             href={`/src/library/${gresInfo.route}`}
             title="Descargar recurso"
             class="hover:bg-[#515151] p-1 rounded-md"
