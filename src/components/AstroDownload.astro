@@ -1,0 +1,25 @@
+---
+const { url = '¡Bienvenido, mundo!' } = Astro.props;
+---
+
+<!-- Guarda la propiedad message como un atributo data. -->
+<astro-download data-message={url}>
+  <button>¡Saluda!</button>
+</astro-download>
+<script type="module">
+  class AstroDownload extends HTMLElement {
+    constructor() {
+      super();
+
+      // Lee el mensaje del atributo data.
+      const message = this.dataset.message;
+      const button = this.querySelector('button');
+      button.addEventListener('click', () => {
+        alert(message);
+      });
+    }
+  }
+
+  customElements.define('astro-download', AstroDownload);
+</script>
+

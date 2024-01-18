@@ -1,10 +1,8 @@
 ---
-
-
 import DownloadIcon from "../icons/Download.astro";
 import { gres } from "../static/gres";
 import type { iGRES } from "../static/types/gres";
-
+import AstroDownload from "./AstroDownload.astro";
 interface Props {
     gresInfo: iGRES;
 }
@@ -15,7 +13,11 @@ const { gresInfo } = Astro.props;
 <div
     class="col-span-4 sm:col-span-2 lg:col-span-1 w-full border-2 border-[#292929] hover:bg-[#282828] duration-300 ease-in-out hover:bg-opacity-40 rounded-lg"
 >
-    <img src={`/src/library/${gresInfo.route}`} alt="" class="w-60 h-auto px-16 pt-3 mx-auto" />
+    <img
+        src={`/src/library/${gresInfo.route}`}
+        alt=""
+        class="w-60 h-auto px-16 pt-3 mx-auto"
+    />
     <h2 class="text-white text-center mt-2 font-semibold">{gresInfo.title}</h2>
     <a
         href={`/elements/${gresInfo.category.toLowerCase()}`}
@@ -23,8 +25,13 @@ const { gresInfo } = Astro.props;
         ><h3>{gresInfo.category}</h3>
     </a>
     <div class="flex items-center space-x-1 w-full p-3 justify-center">
-        <button title="Download SVG" onclick="" class="hover:bg-[#515151] p-1 rounded-md">
+        <a
+            download={gresInfo.route}
+            href=""
+            title="Descargar recurso"
+            class="hover:bg-[#515151] p-1 rounded-md"
+        >
             <DownloadIcon class="text-white" />
-        </button>
+        </a>
     </div>
 </div>
